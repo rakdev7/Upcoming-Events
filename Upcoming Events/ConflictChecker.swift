@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Ideal place for the conflict checker algorithm.
 func checkForConflicts() {
     
 }

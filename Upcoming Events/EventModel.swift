@@ -10,15 +10,14 @@ import Foundation
 
 struct EventModel: Codable, Comparable {
     let title, start, end: String?
+    
+    //Method used for enabling sort method on EventModel in ascending order
     static func < (lhs: EventModel, rhs: EventModel) -> Bool {
         return parseDate(lhs.start!) < parseDate(rhs.start!)
     }
 }
 
-struct EventData: Codable {
-    let eventsArray: [EventModel]
-}
-
+//Method that parses mock.json file to the data model
 func loadJsonToEventModel() -> [EventModel]? {
     if let url = Bundle.main.url(forResource: "mock", withExtension: "json") {
         do {
@@ -33,6 +32,7 @@ func loadJsonToEventModel() -> [EventModel]? {
     return nil
 }
 
+//Method to convert the date from String type to Date type
 func parseDate(_ str : String) -> Date {
     let dateFormat = DateFormatter()
     dateFormat.dateFormat = "MMMM d, yyyy h:mm a"
