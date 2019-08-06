@@ -19,6 +19,9 @@ func checkForConflicts() {
      Need help in writing a new algorithm or refining my implementation to solve this problem. (I did find multiple implementations of this problem in Java but nothing in Swift so far.)
      
      Some Java references - https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjknPnc3O7jAhVyT98KHWzgCoQQFjABegQIBRAB&url=http%3A%2F%2Fkarmaandcoding.blogspot.com%2F2012%2F01%2Ffind-all-conflicting-appointments-from.html&usg=AOvVaw2d0-Gl5IfKGQYuGvwK9319
+     
+     Some other references -
+     If you sort by start times then for each event(current event), do a binary search to find the largest start time (last conflicting event) which is less than current events end time. All the events between current event and last conflicting event is conflicting. 
     
      */
     
