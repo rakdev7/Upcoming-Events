@@ -28,4 +28,9 @@ class EventTableViewCell: UITableViewCell {
         super.init(coder: coder)!
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        conflictLabel.isHidden = true
+    }
+    
 }

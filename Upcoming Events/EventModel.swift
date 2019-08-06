@@ -10,10 +10,22 @@ import Foundation
 
 struct EventModel: Codable, Comparable {
     let title, start, end: String?
+    var isConflicting: Bool = false // Added extra parameter for indicating conflict.
+    
     
     //Method used for enabling sort method on EventModel in ascending order
     static func < (lhs: EventModel, rhs: EventModel) -> Bool {
         return parseDate(lhs.start!) < parseDate(rhs.start!)
+    }
+}
+
+// Coding keys for only keys in json
+extension EventModel {
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case start
+        case end
     }
 }
 
