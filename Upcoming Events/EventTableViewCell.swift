@@ -21,7 +21,7 @@ class EventTableViewCell: UITableViewCell {
         self.titleLabel.text = ""
         self.startLabel.text = ""
         self.endLabel.text = ""
-        self.conflictLabel.text = "This is a conflict!"
+        self.conflictLabel.text = ""
     }
     
     required init(coder: NSCoder) {

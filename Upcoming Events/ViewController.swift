@@ -47,9 +47,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             // Here the models are marked as conflicts.
             self.eventModelItemsFromJson = checkForEventConflicts(events: self.eventModelItemsFromJson)
             
-            //creating sections by creating groups of events using event date.
+            //Creating sections by creating groups of events using event date.
             let groups = Dictionary(grouping: self.eventModelItemsFromJson) { (event) -> Date in
-                return self.eachDayForSection(date: parseDate(event.start!))
+                return self.eachDayForSection(date: getDateFromString(event.start!))
             }
             self.sections = groups.map(SectionItem.init(sectionDate:rowItems:)).sorted()
             
@@ -97,8 +97,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.startLabel.text = rowItem.start
         cell.endLabel.text = rowItem.end
             
-        //TODO: The below if condition should be replaced with the Algorithmic logic which identifies the conflicting cells
-        //This is temporary and only is used to check if I can trigger the conflict label to ON state on any given cell.
         if rowItem.isConflicting {
             cell.conflictLabel.text = "This is a conflict!"
             cell.conflictLabel.isHidden = false
@@ -107,24 +105,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-// No need of this now
-//extension ViewController {
-//
-//    //This algorithm currently has a limitation in that - it only checks for consecutive elements for conflicts. It ideally should check for all events in a given day.
-//    func checkForConflicts() {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "d, h: mm"
-//        let sorted = self.eventModelItemsFromJson.sorted()
-//            for each in 0..<sorted.count - 1 {
-//                let firstStart = parseDate(sorted[each].start!)
-//                let nextStart = parseDate(sorted[each + 1].start!)
-//                let firstEnd = parseDate(sorted[each].end!)
-//                let nextEnd = parseDate(sorted[each + 1].end!)
-//                if ((firstStart < nextEnd) && (firstEnd > nextStart)) {
-//                    print("conflict \(dateFormatter.string(from: nextStart)) \(dateFormatter.string(from: nextEnd))")
-//                }
-//            }
-//        }
-//}
 
