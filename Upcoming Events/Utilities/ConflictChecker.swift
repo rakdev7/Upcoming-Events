@@ -10,12 +10,7 @@ import Foundation
 
 /*
 
- The below algorithm uses binary search[O(logn)] and looping through all the elements[O(n)] in the `events` array. The time complexity of this algorithm is O(nlogn).
- 
- Assumptions - One assumption I've made is that when looking for conflicting events the first event in chronological order will be a `normal`(Not a conflict) event and the successive events that conflict with the before set `normal` event are marked as conflicts.
- 
  Description -
- 
  This algorithm takes an input array of EventModel items which are upcoming events from the mock.json file and sorts them in ascending order to be fed as input for binary search.
 
  Starting with the end time of first event in the array, a binary search is performed on the rest of the array to find a conflicting event (Any event whose start time is less than the end time of the first event).
@@ -24,9 +19,13 @@ import Foundation
  
  The output array will contain an array of EventModel items with updated state of isConflicting parameter for each event.
  
+ Assumptions -
+ One assumption I've made is that when looking for conflicting events the first event in chronological order will be a `normal`(Not a conflict) event and the successive events that conflict with the before set `normal` event are marked as conflicts.
  
- */
+ Runtime complexity analysis-
+ The below algorithm uses binary search[O(logn)] and looping through all the elements[O(n)] in the `events` array. The time complexity of this algorithm is O(nlogn).
 
+ */
 
 func checkForEventConflicts(events: [EventModel]) -> [EventModel] {
     
@@ -67,6 +66,3 @@ func checkForEventConflicts(events: [EventModel]) -> [EventModel] {
     }
     return sortedEvents
 }
-
-
-
