@@ -46,5 +46,10 @@ func loadJsonToEventModel() -> [EventModel]? {
 func getDateFromString(_ str : String) -> Date {
     let dateFormat = DateFormatter()
     dateFormat.dateFormat = "MMMM d, yyyy h:mm a"
-    return dateFormat.date(from: str)!
+    guard let dateType =  dateFormat.date(from: str)
+        else {
+            print("Couldn't convert to date from string\(str)")
+            return Date()
+        }
+    return dateType
 }

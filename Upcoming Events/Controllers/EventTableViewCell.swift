@@ -18,14 +18,10 @@ class EventTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.titleLabel.text = ""
-        self.startLabel.text = ""
-        self.endLabel.text = ""
-        self.conflictLabel.text = ""
     }
     
-    required init(coder: NSCoder) {
-        super.init(coder: coder)!
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     override func prepareForReuse() {
@@ -33,4 +29,15 @@ class EventTableViewCell: UITableViewCell {
         conflictLabel.isHidden = true
     }
     
+    func configureCell(event: EventModel) -> EventTableViewCell {
+        titleLabel.text = event.title
+        startLabel.text = event.start
+        endLabel.text = event.end
+        
+        if event.isConflicting {
+            conflictLabel.text = "This is a conflict!"
+            conflictLabel.isHidden = false
+        }
+        return self
+    }
 }

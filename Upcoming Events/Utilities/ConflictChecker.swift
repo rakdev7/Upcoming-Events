@@ -14,7 +14,16 @@ import Foundation
  
  Assumptions - One assumption I've made is that when looking for conflicting events the first event in chronological order will be a `normal`(Not a conflict) event and the successive events that conflict with the before set `normal` event are marked as conflicts.
  
- Description - This algorithm takes an input array of EventModel items which are upcoming events from the mock.json file and sorts them in ascending order.
+ Description -
+ 
+ This algorithm takes an input array of EventModel items which are upcoming events from the mock.json file and sorts them in ascending order to be fed as input for binary search.
+
+ Starting with the end time of first event in the array, a binary search is performed on the rest of the array to find a conflicting event (Any event whose start time is less than the end time of the first event).
+ 
+ If a conflict is found, we break out of the search and modify the isConflicting flag on the EventModel and move on to the next event in the array and so on.
+ 
+ The output array will contain an array of EventModel items with updated state of isConflicting parameter for each event.
+ 
  
  */
 

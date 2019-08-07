@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1373740622F604AB00855457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373740522F604AB00855457 /* AppDelegate.swift */; };
-		1373740822F604AB00855457 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373740722F604AB00855457 /* ViewController.swift */; };
+		1373740822F604AB00855457 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373740722F604AB00855457 /* EventsViewController.swift */; };
 		1373740B22F604AB00855457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1373740922F604AB00855457 /* Main.storyboard */; };
 		1373740D22F604AC00855457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1373740C22F604AC00855457 /* Assets.xcassets */; };
 		1373741022F604AC00855457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1373740E22F604AC00855457 /* LaunchScreen.storyboard */; };
@@ -16,12 +16,13 @@
 		1373741A22F6151500855457 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 1373741922F6151500855457 /* mock.json */; };
 		1373741C22F635B400855457 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373741B22F635B400855457 /* EventTableViewCell.swift */; };
 		1373741E22F840FA00855457 /* ConflictChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373741D22F840FA00855457 /* ConflictChecker.swift */; };
+		13F7D46522FA4A940085957D /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F7D46422FA4A940085957D /* SectionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1373740222F604AB00855457 /* Upcoming Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Upcoming Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1373740522F604AB00855457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1373740722F604AB00855457 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1373740722F604AB00855457 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		1373740A22F604AB00855457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1373740C22F604AC00855457 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1373740F22F604AC00855457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +31,7 @@
 		1373741922F6151500855457 /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		1373741B22F635B400855457 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		1373741D22F840FA00855457 /* ConflictChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictChecker.swift; sourceTree = "<group>"; };
+		13F7D46422FA4A940085957D /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +64,51 @@
 		1373740422F604AB00855457 /* Upcoming Events */ = {
 			isa = PBXGroup;
 			children = (
-				1373741922F6151500855457 /* mock.json */,
 				1373740522F604AB00855457 /* AppDelegate.swift */,
-				1373740722F604AB00855457 /* ViewController.swift */,
-				1373741D22F840FA00855457 /* ConflictChecker.swift */,
-				1373741722F6119F00855457 /* EventModel.swift */,
-				1373740922F604AB00855457 /* Main.storyboard */,
-				1373741B22F635B400855457 /* EventTableViewCell.swift */,
+				13F7D46322FA4A340085957D /* Model */,
+				13F7D46722FA4AFB0085957D /* Views */,
+				13F7D46622FA4AB50085957D /* Controllers */,
+				13F7D46222FA4A1D0085957D /* Utilities */,
 				1373740C22F604AC00855457 /* Assets.xcassets */,
-				1373740E22F604AC00855457 /* LaunchScreen.storyboard */,
 				1373741122F604AC00855457 /* Info.plist */,
 			);
 			path = "Upcoming Events";
+			sourceTree = "<group>";
+		};
+		13F7D46222FA4A1D0085957D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1373741D22F840FA00855457 /* ConflictChecker.swift */,
+				13F7D46422FA4A940085957D /* SectionItem.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		13F7D46322FA4A340085957D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1373741922F6151500855457 /* mock.json */,
+				1373741722F6119F00855457 /* EventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		13F7D46622FA4AB50085957D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1373740722F604AB00855457 /* EventsViewController.swift */,
+				1373741B22F635B400855457 /* EventTableViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		13F7D46722FA4AFB0085957D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1373740E22F604AC00855457 /* LaunchScreen.storyboard */,
+				1373740922F604AB00855457 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F7D46522FA4A940085957D /* SectionItem.swift in Sources */,
 				1373741C22F635B400855457 /* EventTableViewCell.swift in Sources */,
 				1373741E22F840FA00855457 /* ConflictChecker.swift in Sources */,
-				1373740822F604AB00855457 /* ViewController.swift in Sources */,
+				1373740822F604AB00855457 /* EventsViewController.swift in Sources */,
 				1373741822F6119F00855457 /* EventModel.swift in Sources */,
 				1373740622F604AB00855457 /* AppDelegate.swift in Sources */,
 			);
